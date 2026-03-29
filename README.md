@@ -31,10 +31,23 @@ update methods.
 
 ### How To Use
 
-### Maven Setup
+### Use From GitHub Packages
 
-In a consumer project, add the annotation module as a normal dependency and the
-processor module as a provided dependency:
+To use the published artifacts from GitHub Packages, configure Maven in three
+steps.
+
+1. Add the GitHub Packages repository to your `pom.xml`:
+
+```xml
+<repositories>
+    <repository>
+        <id>github</id>
+        <url>https://maven.pkg.github.com/maxi1324/EasyJavaBitPacking</url>
+    </repository>
+</repositories>
+```
+
+2. Add the dependencies to your `pom.xml`:
 
 ```xml
 <dependencies>
@@ -53,7 +66,7 @@ processor module as a provided dependency:
 </dependencies>
 ```
 
-Also enable the annotation processor in the Maven compiler plugin:
+3. Enable the annotation processor in the Maven compiler plugin:
 
 ```xml
 <build>
@@ -84,8 +97,6 @@ If the generated `*Bit` classes are still marked as missing in the IDE:
 4. Keep `Obtain processors from project classpath` enabled.
 5. Rebuild the project.
 
-If Maven builds work but IntelliJ's internal build still complains, a practical
-fallback is to delegate build and run actions to Maven.
 
 ### Current Behavior
 
